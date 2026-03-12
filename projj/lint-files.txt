@@ -1,0 +1,30 @@
+C:\Idea Lab\projj\src\components\ui\CommandPalette.jsx
+  Line 32: react-hooks/set-state-in-effect
+C:\Idea Lab\projj\src\components\windows\ActivityFeed.jsx
+  Line 25: react-hooks/immutability
+C:\Idea Lab\projj\src\components\windows\Analytics.jsx
+  Line 14: react-hooks/immutability
+  Line 40: no-unused-vars
+  Line 40: react-hooks/purity
+  Line 49: react-hooks/purity
+  Line 50: react-hooks/purity
+  Line 51: react-hooks/purity
+  Line 52: react-hooks/purity
+  Line 53: react-hooks/purity
+C:\Idea Lab\projj\src\components\windows\DigitalBadge.jsx
+  Line 12: react-hooks/set-state-in-effect
+C:\Idea Lab\projj\src\components\windows\Leaderboard.jsx
+  Line 1: no-unused-vars
+C:\Idea Lab\projj\src\context\AppContext.jsx
+  Line 156: react-refresh/only-export-components
+C:\Idea Lab\projj\src\features\aiGuide\AIGuide.jsx
+  Line 170: react-hooks/set-state-in-effect
+C:\Idea Lab\projj\src\features\landing\LandingPage.jsx
+  Line 9: null
+C:\Idea Lab\projj\src\features\login\LoginPage.jsx
+  Line 3: no-unused-vars
+C:\Idea Lab\projj\src\features\workspace\Workspace.jsx
+  Line 1: no-unused-vars
+  Line 37: react-refresh/only-export-components
+C:\Idea Lab\projj\src\systems\SoundManager.js
+  Line 18: no-unused-vars

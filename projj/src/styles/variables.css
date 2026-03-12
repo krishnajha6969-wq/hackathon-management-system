@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════
+   BYTEPUNK — Design Tokens
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Color System ── */
+  --color-bg-void: #05050a;
+  --color-bg-deep: #0a0a12;
+  --color-bg-surface: #10101c;
+  --color-bg-panel: #14142a;
+  --color-bg-elevated: #1a1a35;
+
+  --color-cyan: #00f0ff;
+  --color-cyan-dim: #00a0b0;
+  --color-cyan-glow: rgba(0, 240, 255, 0.15);
+  --color-cyan-glow-strong: rgba(0, 240, 255, 0.35);
+
+  --color-yellow: #f0ff00;
+  --color-yellow-dim: #a0aa00;
+  --color-yellow-glow: rgba(240, 255, 0, 0.15);
+
+  --color-magenta: #ff00aa;
+  --color-magenta-dim: #b00078;
+  --color-magenta-glow: rgba(255, 0, 170, 0.15);
+
+  --color-green: #00ff88;
+  --color-green-dim: #00aa5c;
+  --color-green-glow: rgba(0, 255, 136, 0.15);
+
+  --color-text-primary: #e4e4f0;
+  --color-text-secondary: #9999bb;
+  --color-text-muted: #666688;
+  --color-text-accent: var(--color-cyan);
+
+  --color-border: rgba(0, 240, 255, 0.08);
+  --color-border-active: rgba(0, 240, 255, 0.25);
+
+  /* ── Typography (large, readable) ── */
+  --font-display: 'Orbitron', monospace, sans-serif;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+  --font-body: 'Space Grotesk', 'Rajdhani', 'Segoe UI', sans-serif;
+
+  --text-xs: 0.85rem;
+  --text-sm: 0.95rem;
+  --text-base: 1.05rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.5rem;
+
+  /* ── Spacing ── */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  /* ── Elevation ── */
+  --shadow-glow-sm: 0 0 8px rgba(0, 240, 255, 0.15);
+  --shadow-glow-md: 0 0 20px rgba(0, 240, 255, 0.1), 0 0 60px rgba(0, 240, 255, 0.05);
+  --shadow-glow-lg: 0 0 40px rgba(0, 240, 255, 0.15), 0 0 120px rgba(0, 240, 255, 0.08);
+  --shadow-panel: 0 4px 30px rgba(0, 0, 0, 0.6);
+
+  /* ── Glass / 3D ── */
+  --glass-bg: rgba(10, 10, 18, 0.55);
+  --glass-border: rgba(0, 240, 255, 0.12);
+  --glass-blur: 24px;
+  --perspective: 1200px;
+
+  /* ── Borders ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* ── Transitions ── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* ── Z-Index ── */
+  --z-base: 1;
+  --z-window: 100;
+  --z-window-active: 200;
+  --z-dock: 500;
+  --z-overlay: 700;
+  --z-modal: 800;
+  --z-command-palette: 900;
+  --z-boot: 1000;
+  --z-scanline: 9999;
+}

@@ -1,0 +1,178 @@
+/* ═══════════════════════════════════════════════
+   Boot Sequence Styles
+   ═══════════════════════════════════════════════ */
+
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-boot);
+  background: var(--color-bg-void);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+.boot-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.boot-content {
+  width: 100%;
+  max-width: 700px;
+  padding: var(--space-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.boot-logo {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  animation: fadeIn 0.5s var(--ease-out-expo);
+}
+
+.boot-logo h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-cyan);
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15);
+  margin-bottom: var(--space-sm);
+}
+
+.boot-logo .subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.boot-terminal {
+  background: rgba(0, 240, 255, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.boot-line {
+  font-size: var(--text-xs);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  animation: slideUp 0.3s var(--ease-out-expo) both;
+}
+
+.boot-line.success {
+  color: var(--color-green);
+}
+
+.boot-line.warning {
+  color: var(--color-yellow);
+}
+
+.boot-line.error {
+  color: var(--color-magenta);
+}
+
+.boot-line.highlight {
+  color: var(--color-cyan);
+}
+
+.boot-line .prefix {
+  color: var(--color-text-muted);
+  margin-right: var(--space-sm);
+  opacity: 0.5;
+}
+
+.boot-progress {
+  position: relative;
+  margin-bottom: var(--space-lg);
+}
+
+.boot-progress-bar {
+  height: 2px;
+  background: var(--color-border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.boot-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-cyan-dim));
+  box-shadow: 0 0 15px var(--color-cyan-glow-strong);
+  transition: width 0.3s var(--ease-out-expo);
+  border-radius: 1px;
+}
+
+.boot-progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.boot-status {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
+.boot-status .blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Activation Flash ── */
+.boot-activation {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: var(--color-cyan);
+  animation: activationFlash 0.8s var(--ease-out-expo) forwards;
+  pointer-events: none;
+}
+
+@keyframes activationFlash {
+  0% { opacity: 0; }
+  15% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+/* ── Glitch Effect ── */
+.boot-glitch {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  animation: glitch-skew 0.3s linear;
+}
+
+.boot-glitch::before,
+.boot-glitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.boot-glitch::before {
+  background: rgba(0, 240, 255, 0.05);
+  transform: translateX(-3px);
+  animation: glitch-skew 0.2s linear;
+}
+
+.boot-glitch::after {
+  background: rgba(255, 0, 170, 0.05);
+  transform: translateX(3px);
+  animation: glitch-skew 0.15s linear reverse;
+}
