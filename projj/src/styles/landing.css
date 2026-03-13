@@ -4,9 +4,11 @@
 
 .landing-wrapper {
   min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: var(--color-bg-void);
   color: var(--color-text-primary);
-  overflow-x: hidden;
   position: relative;
   font-family: var(--font-body);
 }
@@ -759,11 +761,39 @@
 .text-muted { color: var(--color-text-muted); }
 .mt-2 { margin-top: 0.5rem; }
 
+/* ── Mobile Nav Hamburger ── */
+.nav-hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--color-border-active);
+  color: var(--color-cyan);
+  font-size: 1.5rem;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.nav-hamburger:hover {
+  background: var(--color-cyan-glow);
+  box-shadow: var(--shadow-glow-sm);
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .hero-title-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-logo {
+    width: 120px;
   }
 
   .hero-description {
@@ -780,7 +810,192 @@
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .footer-content { flex-direction: column; gap: var(--space-lg); }
-  .stats-container { grid-template-columns: 1fr; }
+  /* Nav */
+  .landing-nav {
+    height: 60px;
+    padding: 0 var(--space-md);
+  }
+
+  .nav-hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(5, 5, 10, 0.95);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--space-md);
+    gap: var(--space-md);
+    z-index: 200;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-base);
+  }
+
+  .nav-logo {
+    font-size: var(--text-lg);
+    gap: 8px;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 80px var(--space-md) var(--space-xl);
+    min-height: auto;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .hero-title-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-logo {
+    width: 100px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xs);
+  }
+
+  .hero-description {
+    font-size: var(--text-base);
+    margin: 0 auto var(--space-lg);
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  .cta-btn.primary,
+  .cta-btn.secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Countdown */
+  .hero-clock {
+    padding: var(--space-md);
+  }
+
+  .countdown-container {
+    gap: var(--space-sm);
+  }
+
+  .countdown-block {
+    min-width: 55px;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .countdown-value {
+    font-size: var(--text-xl);
+  }
+
+  /* Events */
+  .events-section {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: var(--text-lg);
+    white-space: normal;
+  }
+
+  /* Stats */
+  .stats-section {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-md);
+  }
+
+  .stat-value {
+    font-size: var(--text-2xl);
+  }
+
+  .stat-label {
+    font-size: var(--text-xs);
+  }
+
+  /* Features */
+  .features-section {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .landing-footer {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 9vw, 2.2rem);
+  }
+
+  .countdown-block {
+    min-width: 48px;
+  }
+
+  .countdown-value {
+    font-size: var(--text-lg);
+  }
+
+  .event-card {
+    padding: var(--space-md);
+  }
 }

@@ -187,6 +187,8 @@ const Workspace = React.memo(function Workspace() {
             gap: 'var(--space-lg)',
             opacity: 0.4,
             animation: 'fadeIn 1s ease',
+            padding: '0 var(--space-md)',
+            textAlign: 'center',
           }}>
             <div style={{
               fontFamily: 'var(--font-display)',
@@ -202,7 +204,9 @@ const Workspace = React.memo(function Workspace() {
               fontSize: 'var(--text-base)',
               color: 'var(--color-text-muted)',
             }}>
-              Launch a tool from the dock below or press Ctrl+K
+              {window.innerWidth <= 768
+                ? 'Tap a tool from the dock below'
+                : 'Launch a tool from the dock below or press Ctrl+K'}
             </div>
           </div>
         )}

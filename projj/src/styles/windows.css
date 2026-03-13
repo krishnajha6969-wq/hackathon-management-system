@@ -377,6 +377,7 @@
 .score-slider {
   width: 100%;
   -webkit-appearance: none;
+  appearance: none;
   height: 4px;
   border-radius: 2px;
   background: rgba(0, 240, 255, 0.1);
@@ -630,4 +631,135 @@
 .glow-btn.green:hover {
   background: rgba(0, 255, 136, 0.12);
   box-shadow: 0 0 8px rgba(0, 255, 136, 0.15);
+}
+
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+  /* Shared */
+  .win-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .win-search {
+    width: 100%;
+  }
+
+  /* Leaderboard */
+  .lb-row {
+    grid-template-columns: 36px 1fr 60px;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .lb-score-bar {
+    display: none;
+  }
+
+  .lb-rank {
+    font-size: var(--text-base);
+  }
+
+  .lb-team-name {
+    font-size: var(--text-xs);
+  }
+
+  .lb-team-domain {
+    font-size: 0.65rem;
+  }
+
+  .lb-score-value {
+    font-size: var(--text-xs);
+  }
+
+  .lb-controls {
+    width: 100%;
+  }
+
+  .lb-filter-btn {
+    flex: 1;
+    text-align: center;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Registrations */
+  .reg-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .stat-card {
+    padding: var(--space-sm);
+  }
+
+  .stat-card .value {
+    font-size: var(--text-lg);
+  }
+
+  /* Scrollable table */
+  .reg-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .reg-table th,
+  .reg-table td {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-xs);
+  }
+
+  /* Judging */
+  .judge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .judge-card {
+    padding: var(--space-md);
+  }
+
+  .judge-modal {
+    max-width: calc(100vw - 2rem);
+    padding: var(--space-md);
+  }
+
+  /* Analytics */
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .analytics-card {
+    padding: var(--space-md);
+  }
+
+  .donut-chart {
+    width: 100px;
+    height: 100px;
+  }
+
+  .bar-chart {
+    height: 90px;
+  }
+
+  /* Buttons — touch-friendly */
+  .win-btn,
+  .glow-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .lb-row {
+    grid-template-columns: 30px 1fr 50px;
+  }
+
+  .lb-rank {
+    font-size: var(--text-sm);
+  }
 }

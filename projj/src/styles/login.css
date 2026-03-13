@@ -260,3 +260,47 @@
   10% { transform: translate(0) }
   100% { transform: translate(0) }
 }
+
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 100%;
+    margin: 0 var(--space-md);
+    padding: var(--space-lg);
+  }
+
+  .terminal-title {
+    font-size: var(--text-lg);
+    letter-spacing: 0.1em;
+  }
+
+  .terminal-cursor {
+    width: 8px;
+    height: 18px;
+  }
+
+  .login-submit {
+    font-size: var(--text-base);
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 400px) {
+  .login-container {
+    margin: 0 var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .role-selector {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .role-btn {
+    padding: var(--space-sm);
+  }
+
+  .form-input {
+    padding: var(--space-sm) var(--space-md);
+  }
+}

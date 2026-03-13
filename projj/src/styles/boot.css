@@ -176,3 +176,30 @@
   transform: translateX(3px);
   animation: glitch-skew 0.15s linear reverse;
 }
+
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+  .boot-content {
+    max-width: 100%;
+    padding: var(--space-md);
+  }
+
+  .boot-logo h1 {
+    font-size: var(--text-xl);
+    letter-spacing: 0.1em;
+  }
+
+  .boot-logo .subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  .boot-terminal {
+    padding: var(--space-md);
+    max-height: 200px;
+  }
+
+  .boot-line {
+    font-size: 0.75rem;
+  }
+}

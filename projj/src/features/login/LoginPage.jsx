@@ -63,7 +63,11 @@ const LoginPage = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="terminal-header">
-          <div className="terminal-title glitch-text">
+          <div 
+            className="terminal-title glitch-text" 
+            onClick={() => navigate('/')} 
+            style={{ cursor: 'pointer' }}
+          >
             BYTEPUNK_AUTH
             <span className="terminal-cursor"></span>
           </div>

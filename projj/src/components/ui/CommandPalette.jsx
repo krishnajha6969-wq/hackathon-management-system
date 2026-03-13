@@ -6,7 +6,8 @@ import soundManager from '../../systems/SoundManager';
 const TOOLS = [
   // Shared tools (all roles)
   { id: 'leaderboard', label: 'Leaderboard', icon: '🏆', shortcut: 'Ctrl+1', width: 950, height: 580, roles: ['participant', 'judge', 'admin'] },
-  { id: 'checkIn', label: 'Access Control', icon: '🛡️', shortcut: 'Ctrl+2', width: 700, height: 560, roles: ['participant', 'judge', 'admin'] },
+  { id: 'checkIn', label: 'Access Control', icon: '🛡️', shortcut: 'Ctrl+2', width: 700, height: 560, roles: ['judge', 'admin'] },
+  { id: 'resources', label: 'Hacker Resources', icon: '📚', shortcut: 'Ctrl+2', width: 800, height: 600, roles: ['participant'] },
   
   // Participant tools
   { id: 'teamFormation', label: 'Team Formation', icon: '👥', shortcut: 'Ctrl+3', width: 900, height: 600, roles: ['participant', 'admin'] },

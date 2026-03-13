@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import CountdownTimer from '../../components/ui/CountdownTimer';
@@ -8,6 +8,7 @@ import '../../styles/landing.css';
 const LandingPage = () => {
   const navigate = useNavigate();
   const { scrollY } = useScroll();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Parallax effects
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
@@ -32,14 +33,21 @@ const LandingPage = () => {
 
       {/* Navigation Bar */}
       <nav className="landing-nav">
-        <div className="nav-logo">
+        <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <img src="/logo.png" alt="" className="nav-logo-icon" />
           <span className="text-cyan">BYTE</span>PUNK
         </div>
-        <div className="nav-links">
-          <a href="#events">EVENTS</a>
-          <a href="#about">ABOUT</a>
-          <a href="#features">FEATURES</a>
+        <button
+          className="nav-hamburger"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? '✕' : '☰'}
+        </button>
+        <div className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+
+          <a href="#about" onClick={() => setMobileMenuOpen(false)}>ABOUT</a>
+          <a href="#features" onClick={() => setMobileMenuOpen(false)}>FEATURES</a>
           <button className="nav-btn primary glow-hover" onClick={handleEnterSystem}>
             [ ENTER_SYSTEM ]
           </button>
@@ -56,12 +64,13 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="hero-title-wrapper"
           >
-            <img src="/logo.png" alt="Bytepunk" className="hero-logo" />
-            <div>
-              <h2 className="hero-subtitle">NEXT-GEN HACKATHON PLATFORM</h2>
-              <h1 className="hero-title glitch" data-text="BYTEPUNK">BYTEPUNK</h1>
+            <div className="hero-title-wrapper">
+              <img src="/logo.png" alt="Bytepunk" className="hero-logo" />
+              <div>
+                <h2 className="hero-subtitle">NEXT-GEN HACKATHON PLATFORM</h2>
+                <h1 className="hero-title glitch" data-text="BYTEPUNK">BYTEPUNK</h1>
+              </div>
             </div>
             <p className="hero-description">
               The ultimate infrastructure for hackers, builders, and creators. 
@@ -73,9 +82,7 @@ const LandingPage = () => {
                 ACCESS_TERMINAL
                 <span className="btn-arrow">→</span>
               </button>
-              <button className="cta-btn secondary" onClick={() => document.getElementById('events').scrollIntoView({ behavior: 'smooth' })}>
-                VIEW_EVENTS
-              </button>
+
             </div>
           </motion.div>
 
@@ -91,46 +98,6 @@ const LandingPage = () => {
         </div>
       </motion.section>
 
-      {/* Events Section */}
-      <section id="events" className="events-section">
-        <div className="section-header">
-          <span className="section-number">01</span>
-          <h2 className="section-title">ACTIVE_OPERATIONS</h2>
-          <div className="section-line"></div>
-        </div>
-
-        <div className="events-grid">
-          {[
-            { id: 'CYBR-26', name: 'CyberPunk Hack 2026', date: 'Oct 15 - Oct 17', prize: '$50,000', teams: 142, status: 'OPEN' },
-            { id: 'WEB3-X', name: 'Web3 Frontier Builder', date: 'Nov 02 - Nov 05', prize: '$75,000', teams: 89, status: 'UPCOMING' },
-            { id: 'AI-CORE', name: 'Neural Forge AI Sprint', date: 'Dec 10 - Dec 12', prize: '$100k', teams: 210, status: 'DRAFT' }
-          ].map((evt, i) => (
-            <motion.div 
-              key={evt.id} 
-              className="event-card glass-panel"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <div className="event-status">
-                <span className={`status-dot ${evt.status.toLowerCase()}`}></span>
-                {evt.status}
-              </div>
-              <h3 className="event-name">{evt.name}</h3>
-              <div className="event-meta">
-                <div className="meta-item"><span>ID:</span> {evt.id}</div>
-                <div className="meta-item"><span>DATE:</span> {evt.date}</div>
-                <div className="meta-item"><span>PRIZE:</span> <span className="text-green">{evt.prize}</span></div>
-                <div className="meta-item"><span>TEAMS:</span> {evt.teams}</div>
-              </div>
-              <button className="event-btn glow-hover" onClick={handleEnterSystem}>
-                REGISTER_NOW
-              </button>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* About/Stats Section */}
       <section id="about" className="stats-section">

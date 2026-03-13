@@ -17,6 +17,7 @@ const TeamFormation = React.memo(function TeamFormation() {
 
   const [newTeamName, setNewTeamName] = useState('');
   const [newTeamDesc, setNewTeamDesc] = useState('');
+  const [newTeamSize, setNewTeamSize] = useState(4);
 
   useEffect(() => {
     localStorage.setItem('hms_teams', JSON.stringify(teams));
@@ -33,7 +34,7 @@ const TeamFormation = React.memo(function TeamFormation() {
       name: newTeamName,
       desc: newTeamDesc,
       members: 1,
-      max: 4,
+      max: newTeamSize,
     };
     
     setTeams([...teams, newTeam]);
@@ -133,6 +134,21 @@ const TeamFormation = React.memo(function TeamFormation() {
               onChange={e => setNewTeamDesc(e.target.value)}
               placeholder="Describe your tech stack and goals..."
             />
+          </div>
+          <div style={{ display: 'flex', gap: 'var(--space-md)', alignItems: 'center' }}>
+            <label style={{ color: 'var(--color-cyan)', fontSize: 'var(--text-sm)' }}>TEAM SIZE:</label>
+            {[1, 2, 4].map(size => (
+              <label key={size} style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer', color: 'white' }}>
+                <input 
+                  type="radio" 
+                  name="teamSize" 
+                  value={size} 
+                  checked={newTeamSize === size} 
+                  onChange={() => setNewTeamSize(size)} 
+                />
+                {size} Member{size > 1 ? 's' : ''}
+              </label>
+            ))}
           </div>
           <button type="submit" className="win-btn primary" style={{ alignSelf: 'flex-end' }}>INITIALIZE TEAM</button>
         </form>

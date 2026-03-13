@@ -20,17 +20,23 @@ function reducer(state, action) {
       return { ...state, phase: action.payload };
 
     case 'OPEN_WINDOW': {
-      // Single-window mode: close all existing windows, open only the new one
+      // Detect mobile viewport for fullscreen windows
+      const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+      const winX = isMobile ? 0 : (action.payload.x ?? 60);
+      const winY = isMobile ? 0 : (action.payload.y ?? 20);
+      const winW = isMobile ? window.innerWidth : (action.payload.width ?? 900);
+      const winH = isMobile ? (window.innerHeight - 100) : (action.payload.height ?? 560);
+
       return {
         ...state,
         windows: [{
           ...action.payload,
           zIndex: state.nextZIndex,
           minimized: false,
-          x: action.payload.x ?? 60,
-          y: action.payload.y ?? 20,
-          width: action.payload.width ?? 900,
-          height: action.payload.height ?? 560,
+          x: winX,
+          y: winY,
+          width: winW,
+          height: winH,
         }],
         activeWindowId: action.payload.id,
         nextZIndex: state.nextZIndex + 1,
