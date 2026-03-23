@@ -137,17 +137,17 @@ export default function AnalyticsPage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
                     <div>
-                        <h1 className="text-2xl font-bold text-white">Operations Analytics</h1>
-                        <p className="text-sm text-slate-400 mt-1">Performance metrics and operational insights</p>
+                        <h1 className="text-3xl font-black text-white tracking-tight">Operations Analytics</h1>
+                        <p className="text-base text-slate-400 mt-2">Performance metrics and operational insights</p>
                     </div>
-                    <div className="flex items-center gap-2 bg-slate-800 rounded-xl p-1 border border-slate-700">
+                    <div className="flex items-center gap-2 bg-slate-800 rounded-xl p-1.5 border border-slate-700">
                         {['24h', '7d', '30d', '90d'].map(range => (
                             <button
                                 key={range}
                                 onClick={() => setTimeRange(range)}
-                                className={`px-4 py-1.5 text-xs font-medium rounded-lg transition-colors ${timeRange === range ? 'bg-red-600 text-white' : 'text-slate-400 hover:text-white'
+                                className={`px-5 py-2 text-sm font-bold rounded-lg transition-colors ${timeRange === range ? 'bg-red-600 text-white' : 'text-slate-400 hover:text-white'
                                     }`}
                             >
                                 {range}
@@ -157,15 +157,15 @@ export default function AnalyticsPage() {
                 </div>
 
                 {/* Metric Cards */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
                     {metricsCards.map((m, i) => (
-                        <div key={i} className={`bg-gradient-to-br ${m.bg} p-5 rounded-2xl border ${m.border}`}>
+                        <div key={i} className={`bg-gradient-to-br ${m.bg} p-6 rounded-2xl border ${m.border}`}>
                             <div className="flex items-center justify-between mb-3">
-                                <span className="text-2xl">{m.icon}</span>
-                                <span className={`text-xs font-semibold ${m.color}`}>{m.change}</span>
+                                <span className="text-3xl">{m.icon}</span>
+                                <span className={`text-sm font-bold ${m.color}`}>{m.change}</span>
                             </div>
-                            <p className="text-2xl font-bold text-white">{m.value}</p>
-                            <p className="text-xs text-slate-400 mt-1">{m.label}</p>
+                            <p className="text-3xl font-black text-white">{m.value}</p>
+                            <p className="text-sm text-slate-400 mt-1 font-medium">{m.label}</p>
                         </div>
                     ))}
                 </div>
@@ -176,8 +176,8 @@ export default function AnalyticsPage() {
                     <div className="bg-slate-900/80 rounded-2xl border border-slate-700/50 p-5">
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h3 className="text-sm font-semibold text-white">Response Time</h3>
-                                <p className="text-xs text-slate-500">Average time to reach incident site</p>
+                                <h3 className="text-lg font-bold text-white">Response Time</h3>
+                                <p className="text-sm text-slate-500">Average time to reach incident site</p>
                             </div>
                         </div>
                         <div className="h-[280px]">
@@ -189,8 +189,8 @@ export default function AnalyticsPage() {
                     <div className="bg-slate-900/80 rounded-2xl border border-slate-700/50 p-5">
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h3 className="text-sm font-semibold text-white">Congestion Frequency</h3>
-                                <p className="text-xs text-slate-500">Route congestion patterns over time</p>
+                                <h3 className="text-lg font-bold text-white">Congestion Frequency</h3>
+                                <p className="text-sm text-slate-500">Route congestion patterns over time</p>
                             </div>
                         </div>
                         <div className="h-[280px]">
@@ -202,8 +202,8 @@ export default function AnalyticsPage() {
                     <div className="bg-slate-900/80 rounded-2xl border border-slate-700/50 p-5">
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h3 className="text-sm font-semibold text-white">Team Performance</h3>
-                                <p className="text-xs text-slate-500">Missions completed by team</p>
+                                <h3 className="text-lg font-bold text-white">Team Performance</h3>
+                                <p className="text-sm text-slate-500">Missions completed by team</p>
                             </div>
                         </div>
                         <div className="h-[280px]">
@@ -215,8 +215,8 @@ export default function AnalyticsPage() {
                     <div className="bg-slate-900/80 rounded-2xl border border-slate-700/50 p-5">
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h3 className="text-sm font-semibold text-white">Vehicle Distribution</h3>
-                                <p className="text-xs text-slate-500">Current fleet status breakdown</p>
+                                <h3 className="text-lg font-bold text-white">Vehicle Distribution</h3>
+                                <p className="text-sm text-slate-500">Current fleet status breakdown</p>
                             </div>
                         </div>
                         <div className="h-[280px] flex items-center justify-center">
@@ -229,8 +229,8 @@ export default function AnalyticsPage() {
                 <div className="bg-slate-900/80 rounded-2xl border border-slate-700/50 p-5">
                     <div className="flex items-center justify-between mb-4">
                         <div>
-                            <h3 className="text-sm font-semibold text-white">Incident Severity Trends</h3>
-                            <p className="text-xs text-slate-500">Weekly incident breakdown by severity</p>
+                            <h3 className="text-lg font-bold text-white">Incident Severity Trends</h3>
+                            <p className="text-sm text-slate-500">Weekly incident breakdown by severity</p>
                         </div>
                     </div>
                     <div className="h-[300px]">
